@@ -82,6 +82,7 @@ Every quiz attempt is stored in `quizlogs.txt`, including:
 LogicArena/
 │
 ├── main.cpp
+│
 ├── leaderboard.txt
 ├── quizlogs.txt
 │
@@ -96,3 +97,41 @@ LogicArena/
 ├── iq_easy.txt
 ├── iq_medium.txt
 └── iq_hard.txt
+##Function Structure (main.cpp)
+main.cpp
+│
+├── menu()                      
+│   → Displays main menu
+│
+├── subject()                  
+│   → Takes subject input (Science/Computer/IQ)
+│
+├── difficulty()               
+│   → Takes difficulty input (Easy/Medium/Hard)
+│
+├── loadQuestions()            
+│   → Loads 30 questions from the selected file using file handling
+│
+├── displayQuestion()          
+│   → Core quiz engine (timer, lifelines, streaks, answer checking)
+│
+│   ├── showlifelines()
+│   │    → Displays 50/50, Skip, Swap, Time Extend
+│   │
+│   ├── applyswap()
+│   │    → Replaces current question with a new one
+│   │
+│   └── reviewWrong()
+│        → Shows incorrect questions after quiz
+│
+├── saveScore()                
+│   → Saves or updates player scores in leaderboard.txt
+│
+├── Leaderboard()              
+│   → Reads all scores, sorts them, and prints Top 5
+│
+├── adminmode()                
+│   → (Under development) password-locked admin area
+│
+└── saveQuizLog()              
+    → Saves session details (user answers, correct answers, question index)
